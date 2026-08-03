@@ -13,7 +13,7 @@ import chatRoutes from './routes/chatRoutes.js';
 import settingsRoutes from './routes/settingsRoutes.js';
 import aiRoutes from './routes/aiRoutes.js';
 
-dotenv.config();
+dotenv.config({ override: true });
 
 const app = express();
 const httpServer = createServer(app);
@@ -73,7 +73,7 @@ app.use((req, res) => {
   });
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 const startServer = async () => {
   await connectDB();

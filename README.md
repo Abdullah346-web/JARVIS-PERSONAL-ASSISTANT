@@ -128,8 +128,9 @@ cp .env.example .env
 # MONGODB_URI=mongodb://localhost:27017/jarvis-ai
 # JWT_SECRET=your_long_secret_key
 # NODE_ENV=development
+# APP_TIME_ZONE=Asia/Karachi
 # GEMINI_API_KEY=your_gemini_api_key
-# GEMINI_MODEL=gemini-1.5-flash
+# GEMINI_MODEL=gemini-2.0-flash
 
 # Start MongoDB (if using local)
 # macOS: brew services start mongodb-community
@@ -257,8 +258,9 @@ JWT_SECRET=your_long_secret_key_here
 JWT_EXPIRE=7d
 NODE_ENV=development
 FRONTEND_URL=http://localhost:5173
+APP_TIME_ZONE=Asia/Karachi
 GEMINI_API_KEY=your_gemini_api_key_here
-GEMINI_MODEL=gemini-1.5-flash
+GEMINI_MODEL=gemini-2.0-flash
 ```
 
 ### Frontend (.env)
