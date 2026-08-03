@@ -2,23 +2,9 @@ import { useEffect, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
+const TOTAL_DURATION = 5000;
 const FULL_TITLE = 'Your Personal AI Assistant';
 const INITIALIZING_DOTS = ['.', '..', '...'];
-const TOTAL_DURATION = 5000;
-
-const orbitParticles = Array.from({ length: 18 }, (_, index) => {
-  const orbitSize = 112 + (index % 4) * 18;
-
-  return {
-    id: index,
-    size: 4 + (index % 3),
-    orbitSize,
-    angle: (index * 360) / 18,
-    duration: 9 + (index % 5) * 1.7,
-    delay: (index % 6) * 0.18,
-    blur: index % 2 === 0 ? '1px' : '0px',
-  };
-});
 
 const backgroundParticles = Array.from({ length: 22 }, (_, index) => ({
   id: index,
@@ -27,6 +13,15 @@ const backgroundParticles = Array.from({ length: 22 }, (_, index) => ({
   size: 2 + (index % 2),
   duration: 8 + (index % 6),
   delay: (index % 8) * 0.35,
+}));
+
+const orbitParticles = Array.from({ length: 18 }, (_, index) => ({
+  id: index,
+  size: 4 + (index % 3),
+  orbitSize: 112 + (index % 4) * 18,
+  delay: (index % 6) * 0.18,
+  duration: 9 + (index % 5) * 1.7,
+  blur: index % 2 === 0 ? '1px' : '0px',
 }));
 
 const stageVariants = {
@@ -60,9 +55,7 @@ function SplashScreen() {
 
     const animateProgress = (now) => {
       const elapsed = now - startTime;
-      const value = Math.min(100, (elapsed / TOTAL_DURATION) * 100);
-
-      setProgress(value);
+      setProgress(Math.min(100, (elapsed / TOTAL_DURATION) * 100));
 
       if (elapsed < TOTAL_DURATION) {
         frameId = requestAnimationFrame(animateProgress);
@@ -71,9 +64,7 @@ function SplashScreen() {
 
     frameId = requestAnimationFrame(animateProgress);
 
-    return () => {
-      cancelAnimationFrame(frameId);
-    };
+    return () => cancelAnimationFrame(frameId);
   }, []);
 
   useEffect(() => {
@@ -85,9 +76,7 @@ function SplashScreen() {
       window.setTimeout(() => navigate('/login', { replace: true }), TOTAL_DURATION),
     ];
 
-    return () => {
-      timers.forEach((timer) => clearTimeout(timer));
-    };
+    return () => timers.forEach((timer) => clearTimeout(timer));
   }, [navigate]);
 
   useEffect(() => {
@@ -121,8 +110,6 @@ function SplashScreen() {
 
     return () => clearInterval(dotsInterval);
   }, [phase]);
-
-  const visibleDots = INITIALIZING_DOTS[dotsIndex];
 
   return (
     <motion.section
@@ -280,61 +267,24 @@ function SplashScreen() {
           <div className="relative z-10 mt-2 flex min-h-[12rem] w-full max-w-2xl flex-col items-center justify-start px-2 sm:min-h-[13rem]">
             <AnimatePresence mode="wait" initial={false}>
               {phase === 0 && (
-                <motion.div
-                  key="welcome"
-                  variants={stageVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  className="flex flex-col items-center gap-3"
-                >
-                  <p className="text-[0.7rem] font-semibold uppercase tracking-[0.55em] text-cyan-100/80 sm:text-[0.8rem]">
-                    WELCOME TO
-                  </p>
-                  <p className="bg-gradient-to-r from-cyan-100 via-cyan-300 to-blue-300 bg-clip-text text-5xl font-semibold tracking-[0.28em] text-transparent drop-shadow-[0_0_18px_rgba(34,211,238,0.8)] sm:text-6xl">
-                    JARVIS
-                  </p>
+                <motion.div key="welcome" variants={stageVariants} initial="hidden" animate="visible" exit="exit" className="flex flex-col items-center gap-3">
+                  <p className="text-[0.7rem] font-semibold uppercase tracking-[0.55em] text-cyan-100/80 sm:text-[0.8rem]">WELCOME TO</p>
+                  <p className="bg-gradient-to-r from-cyan-100 via-cyan-300 to-blue-300 bg-clip-text text-5xl font-semibold tracking-[0.28em] text-transparent drop-shadow-[0_0_18px_rgba(34,211,238,0.8)] sm:text-6xl">JARVIS</p>
                 </motion.div>
               )}
 
               {phase === 1 && (
-                <motion.div
-                  key="jarvis"
-                  variants={stageVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  className="flex flex-col items-center gap-3"
-                >
-                  <p className="text-[0.7rem] font-semibold uppercase tracking-[0.55em] text-cyan-100/65 sm:text-[0.8rem]">
-                    WELCOME TO
-                  </p>
-                  <p className="bg-gradient-to-r from-white via-cyan-100 to-cyan-300 bg-clip-text text-5xl font-semibold tracking-[0.26em] text-transparent drop-shadow-[0_0_22px_rgba(255,255,255,0.45),0_0_22px_rgba(34,211,238,0.8)] sm:text-6xl">
-                    JARVIS
-                  </p>
+                <motion.div key="jarvis" variants={stageVariants} initial="hidden" animate="visible" exit="exit" className="flex flex-col items-center gap-3">
+                  <p className="text-[0.7rem] font-semibold uppercase tracking-[0.55em] text-cyan-100/65 sm:text-[0.8rem]">WELCOME TO</p>
+                  <p className="bg-gradient-to-r from-white via-cyan-100 to-cyan-300 bg-clip-text text-5xl font-semibold tracking-[0.26em] text-transparent drop-shadow-[0_0_22px_rgba(255,255,255,0.45),0_0_22px_rgba(34,211,238,0.8)] sm:text-6xl">JARVIS</p>
                 </motion.div>
               )}
 
               {phase === 2 && (
-                <motion.div
-                  key="tagline"
-                  variants={stageVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  className="flex flex-col items-center gap-5"
-                >
-                  <p className="text-[0.72rem] font-medium uppercase tracking-[0.52em] text-cyan-100/70 sm:text-[0.8rem]">
-                    WELCOME TO
-                  </p>
-                  <p className="bg-gradient-to-r from-cyan-100 via-white to-blue-200 bg-clip-text text-5xl font-semibold tracking-[0.26em] text-transparent drop-shadow-[0_0_18px_rgba(34,211,238,0.9)] sm:text-6xl">
-                    JARVIS
-                  </p>
-                  <motion.p
-                    className="min-h-[2rem] text-base font-medium tracking-[0.16em] text-cyan-50/90 sm:text-lg"
-                    animate={prefersReducedMotion ? undefined : { opacity: [0.75, 1, 0.75] }}
-                    transition={prefersReducedMotion ? undefined : { duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
-                  >
+                <motion.div key="tagline" variants={stageVariants} initial="hidden" animate="visible" exit="exit" className="flex flex-col items-center gap-5">
+                  <p className="text-[0.72rem] font-medium uppercase tracking-[0.52em] text-cyan-100/70 sm:text-[0.8rem]">WELCOME TO</p>
+                  <p className="bg-gradient-to-r from-cyan-100 via-white to-blue-200 bg-clip-text text-5xl font-semibold tracking-[0.26em] text-transparent drop-shadow-[0_0_18px_rgba(34,211,238,0.9)] sm:text-6xl">JARVIS</p>
+                  <motion.p className="min-h-[2rem] text-base font-medium tracking-[0.16em] text-cyan-50/90 sm:text-lg" animate={prefersReducedMotion ? undefined : { opacity: [0.75, 1, 0.75] }} transition={prefersReducedMotion ? undefined : { duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}>
                     {typedText}
                     <span className="ml-1 inline-block text-cyan-300">|</span>
                   </motion.p>
@@ -342,31 +292,13 @@ function SplashScreen() {
               )}
 
               {phase >= 3 && (
-                <motion.div
-                  key="initializing"
-                  variants={stageVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  className="flex w-full flex-col items-center gap-5"
-                >
-                  <p className="bg-gradient-to-r from-cyan-100 via-white to-blue-200 bg-clip-text text-4xl font-semibold tracking-[0.18em] text-transparent drop-shadow-[0_0_18px_rgba(34,211,238,0.85)] sm:text-5xl">
-                    JARVIS
-                  </p>
-                  <div className="flex items-center gap-2 text-sm uppercase tracking-[0.5em] text-cyan-100/70 sm:text-[0.82rem]">
-                    <span>Your Personal AI Assistant</span>
-                  </div>
+                <motion.div key="initializing" variants={stageVariants} initial="hidden" animate="visible" exit="exit" className="flex w-full flex-col items-center gap-5">
+                  <p className="bg-gradient-to-r from-cyan-100 via-white to-blue-200 bg-clip-text text-4xl font-semibold tracking-[0.18em] text-transparent drop-shadow-[0_0_18px_rgba(34,211,238,0.85)] sm:text-5xl">JARVIS</p>
+                  <div className="flex items-center gap-2 text-sm uppercase tracking-[0.5em] text-cyan-100/70 sm:text-[0.82rem]"><span>Your Personal AI Assistant</span></div>
                   <div className="flex items-center gap-2 text-sm font-medium tracking-[0.28em] text-cyan-50/80 sm:text-base">
                     <span>Initializing Neural Core</span>
-                    <motion.span
-                      key={visibleDots}
-                      initial={{ opacity: 0, y: 4 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -4 }}
-                      transition={{ duration: 0.2, ease: 'easeOut' }}
-                      className="w-8 text-left text-cyan-300"
-                    >
-                      {visibleDots}
+                    <motion.span key={INITIALIZING_DOTS[dotsIndex]} initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -4 }} transition={{ duration: 0.2, ease: 'easeOut' }} className="w-8 text-left text-cyan-300">
+                      {INITIALIZING_DOTS[dotsIndex]}
                     </motion.span>
                   </div>
                 </motion.div>
