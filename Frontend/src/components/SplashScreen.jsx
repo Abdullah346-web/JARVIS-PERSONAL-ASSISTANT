@@ -166,53 +166,53 @@ function SplashScreen() {
         </div>
       </div>
 
-      <div className="relative flex min-h-screen items-center justify-center px-4 py-8 sm:px-6 lg:px-8">
-        <div className="relative flex w-full max-w-3xl flex-col items-center justify-center text-center">
-          <div className="relative flex h-[420px] w-full items-center justify-center sm:h-[480px]">
+      <div className="relative flex min-h-[100svh] items-center justify-center px-3 py-6 sm:px-6 lg:px-8">
+        <div className="relative flex w-full max-w-2xl flex-col items-center justify-center text-center">
+          <div className="relative flex h-[300px] w-full items-center justify-center sm:h-[360px] lg:h-[420px]">
             <div className="absolute inset-0 flex items-center justify-center">
               <motion.div
                 aria-hidden="true"
-                className="absolute h-[24rem] w-[24rem] rounded-full bg-cyan-400/10 blur-3xl sm:h-[30rem] sm:w-[30rem]"
+                className="absolute h-[16rem] w-[16rem] rounded-full bg-cyan-400/10 blur-3xl sm:h-[22rem] sm:w-[22rem] lg:h-[26rem] lg:w-[26rem]"
                 animate={prefersReducedMotion ? undefined : { scale: [0.92, 1.04, 0.92], opacity: [0.45, 0.8, 0.45] }}
                 transition={prefersReducedMotion ? undefined : { duration: 6, repeat: Infinity, ease: 'easeInOut' }}
               />
 
               <motion.div
                 aria-hidden="true"
-                className="absolute h-[18rem] w-[18rem] rounded-full border border-cyan-300/20 bg-[radial-gradient(circle,rgba(34,211,238,0.11),rgba(5,8,22,0.02)_70%,transparent_82%)] shadow-[0_0_80px_rgba(34,211,238,0.18)] sm:h-[22rem] sm:w-[22rem]"
+                className="absolute h-[11rem] w-[11rem] rounded-full border border-cyan-300/20 bg-[radial-gradient(circle,rgba(34,211,238,0.11),rgba(5,8,22,0.02)_70%,transparent_82%)] shadow-[0_0_80px_rgba(34,211,238,0.18)] sm:h-[16rem] sm:w-[16rem] lg:h-[18rem] lg:w-[18rem]"
                 animate={prefersReducedMotion ? undefined : { scale: [1, 1.03, 1], opacity: [0.85, 1, 0.85] }}
                 transition={prefersReducedMotion ? undefined : { duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
               />
 
               <motion.div
                 aria-hidden="true"
-                className="absolute h-[16rem] w-[16rem] rounded-full border border-cyan-200/35 shadow-[0_0_30px_rgba(34,211,238,0.18),inset_0_0_24px_rgba(34,211,238,0.16)] sm:h-[20rem] sm:w-[20rem]"
+                className="absolute h-[9rem] w-[9rem] rounded-full border border-cyan-200/35 shadow-[0_0_30px_rgba(34,211,238,0.18),inset_0_0_24px_rgba(34,211,238,0.16)] sm:h-[13rem] sm:w-[13rem] lg:h-[15rem] lg:w-[15rem]"
                 animate={prefersReducedMotion ? { rotate: 0 } : { rotate: 360 }}
                 transition={prefersReducedMotion ? undefined : { duration: 24, repeat: Infinity, ease: 'linear' }}
               >
-                <div className="absolute left-1/2 top-0 h-5 w-1 -translate-x-1/2 rounded-full bg-cyan-300 shadow-[0_0_18px_rgba(34,211,238,0.95)]" />
-                <div className="absolute right-3 top-1/2 h-3 w-3 -translate-y-1/2 rounded-full bg-blue-300 shadow-[0_0_16px_rgba(96,165,250,0.9)]" />
-                <div className="absolute bottom-4 left-1/2 h-2 w-2 -translate-x-1/2 rounded-full bg-white shadow-[0_0_14px_rgba(255,255,255,0.95)]" />
+                <div className="absolute left-1/2 top-0 h-4 w-1 -translate-x-1/2 rounded-full bg-cyan-300 shadow-[0_0_18px_rgba(34,211,238,0.95)] sm:h-5" />
+                <div className="absolute right-2 top-1/2 h-2.5 w-2.5 -translate-y-1/2 rounded-full bg-blue-300 shadow-[0_0_16px_rgba(96,165,250,0.9)] sm:right-3 sm:h-3 sm:w-3" />
+                <div className="absolute bottom-3 left-1/2 h-2 w-2 -translate-x-1/2 rounded-full bg-white shadow-[0_0_14px_rgba(255,255,255,0.95)] sm:bottom-4" />
               </motion.div>
 
               <motion.div
                 aria-hidden="true"
-                className="absolute h-[12rem] w-[12rem] rounded-full border border-cyan-200/45 border-t-transparent border-r-transparent shadow-[0_0_24px_rgba(34,211,238,0.18)] sm:h-[15rem] sm:w-[15rem]"
+                className="absolute h-[7rem] w-[7rem] rounded-full border border-cyan-200/45 border-t-transparent border-r-transparent shadow-[0_0_24px_rgba(34,211,238,0.18)] sm:h-[10rem] sm:w-[10rem] lg:h-[12rem] lg:w-[12rem]"
                 animate={prefersReducedMotion ? { rotate: 0 } : { rotate: -360 }}
                 transition={prefersReducedMotion ? undefined : { duration: 18, repeat: Infinity, ease: 'linear' }}
               >
-                <div className="absolute left-1/2 top-1 h-3 w-3 -translate-x-1/2 rounded-full bg-cyan-100 shadow-[0_0_14px_rgba(255,255,255,0.95)]" />
-                <div className="absolute right-2 top-1/2 h-2.5 w-2.5 -translate-y-1/2 rounded-full bg-cyan-300 shadow-[0_0_12px_rgba(34,211,238,0.85)]" />
+                <div className="absolute left-1/2 top-1 h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-cyan-100 shadow-[0_0_14px_rgba(255,255,255,0.95)] sm:h-3 sm:w-3" />
+                <div className="absolute right-1.5 top-1/2 h-2 w-2 -translate-y-1/2 rounded-full bg-cyan-300 shadow-[0_0_12px_rgba(34,211,238,0.85)] sm:right-2 sm:h-2.5 sm:w-2.5" />
               </motion.div>
 
               <motion.div
                 aria-hidden="true"
-                className="absolute h-[8rem] w-[8rem] rounded-full border border-blue-200/40 border-b-transparent border-l-transparent shadow-[0_0_18px_rgba(96,165,250,0.2)] sm:h-[10.5rem] sm:w-[10.5rem]"
+                className="absolute h-[4.75rem] w-[4.75rem] rounded-full border border-blue-200/40 border-b-transparent border-l-transparent shadow-[0_0_18px_rgba(96,165,250,0.2)] sm:h-[7rem] sm:w-[7rem] lg:h-[8.5rem] lg:w-[8.5rem]"
                 animate={prefersReducedMotion ? { rotate: 0 } : { rotate: 360 }}
                 transition={prefersReducedMotion ? undefined : { duration: 11, repeat: Infinity, ease: 'linear' }}
               />
 
-              <div className="absolute h-[5.75rem] w-[5.75rem] rounded-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.96),rgba(103,232,249,0.92)_22%,rgba(34,211,238,0.74)_52%,rgba(8,15,39,0.02)_76%)] shadow-[0_0_28px_rgba(34,211,238,0.5),0_0_92px_rgba(59,130,246,0.24),inset_0_0_20px_rgba(255,255,255,0.45)] sm:h-[7.5rem] sm:w-[7.5rem]">
+              <div className="absolute h-[4rem] w-[4rem] rounded-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.96),rgba(103,232,249,0.92)_22%,rgba(34,211,238,0.74)_52%,rgba(8,15,39,0.02)_76%)] shadow-[0_0_28px_rgba(34,211,238,0.5),0_0_92px_rgba(59,130,246,0.24),inset_0_0_20px_rgba(255,255,255,0.45)] sm:h-[5.5rem] sm:w-[5.5rem] lg:h-[6.5rem] lg:w-[6.5rem]">
                 <motion.div
                   aria-hidden="true"
                   className="absolute inset-2 rounded-full border border-white/20 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.72),rgba(34,211,238,0.38)_42%,rgba(5,8,22,0.08)_78%)]"
@@ -221,7 +221,7 @@ function SplashScreen() {
                 />
                 <motion.div
                   aria-hidden="true"
-                  className="absolute inset-[-0.8rem] rounded-full border border-cyan-300/30"
+                  className="absolute inset-[-0.5rem] rounded-full border border-cyan-300/30 sm:inset-[-0.7rem]"
                   animate={prefersReducedMotion ? undefined : { scale: [0.86, 1.08, 0.86], opacity: [0.2, 0.75, 0.2] }}
                   transition={prefersReducedMotion ? undefined : { duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
                 />
@@ -257,34 +257,18 @@ function SplashScreen() {
 
               <motion.div
                 aria-hidden="true"
-                className="absolute h-[9.5rem] w-[9.5rem] rounded-full border border-cyan-200/15 bg-[conic-gradient(from_0deg,transparent_0_18%,rgba(34,211,238,0.7)_18%_20%,transparent_20%_44%,rgba(96,165,250,0.55)_44%_46%,transparent_46%_72%,rgba(34,211,238,0.72)_72%_74%,transparent_74%_100%)] blur-[1px] sm:h-[12rem] sm:w-[12rem]"
+                className="absolute h-[5.5rem] w-[5.5rem] rounded-full border border-cyan-200/15 bg-[conic-gradient(from_0deg,transparent_0_18%,rgba(34,211,238,0.7)_18%_20%,transparent_20%_44%,rgba(96,165,250,0.55)_44%_46%,transparent_46%_72%,rgba(34,211,238,0.72)_72%_74%,transparent_74%_100%)] blur-[1px] sm:h-[8rem] sm:w-[8rem] lg:h-[9.5rem] lg:w-[9.5rem]"
                 animate={prefersReducedMotion ? { rotate: 0 } : { rotate: 360 }}
                 transition={prefersReducedMotion ? undefined : { duration: 15, repeat: Infinity, ease: 'linear' }}
               />
             </div>
           </div>
 
-          <div className="relative z-10 mt-2 flex min-h-[12rem] w-full max-w-2xl flex-col items-center justify-start px-2 sm:min-h-[13rem]">
+          <div className="relative z-10 mt-1 flex min-h-[9rem] w-full max-w-xl flex-col items-center justify-start px-1 sm:mt-2 sm:min-h-[10rem] lg:min-h-[11rem]">
             <AnimatePresence mode="wait" initial={false}>
-              {phase === 0 && (
-                <motion.div key="welcome" variants={stageVariants} initial="hidden" animate="visible" exit="exit" className="flex flex-col items-center gap-3">
-                  <p className="text-[0.7rem] font-semibold uppercase tracking-[0.55em] text-cyan-100/80 sm:text-[0.8rem]">WELCOME TO</p>
-                  <p className="bg-gradient-to-r from-cyan-100 via-cyan-300 to-blue-300 bg-clip-text text-5xl font-semibold tracking-[0.28em] text-transparent drop-shadow-[0_0_18px_rgba(34,211,238,0.8)] sm:text-6xl">JARVIS</p>
-                </motion.div>
-              )}
-
-              {phase === 1 && (
-                <motion.div key="jarvis" variants={stageVariants} initial="hidden" animate="visible" exit="exit" className="flex flex-col items-center gap-3">
-                  <p className="text-[0.7rem] font-semibold uppercase tracking-[0.55em] text-cyan-100/65 sm:text-[0.8rem]">WELCOME TO</p>
-                  <p className="bg-gradient-to-r from-white via-cyan-100 to-cyan-300 bg-clip-text text-5xl font-semibold tracking-[0.26em] text-transparent drop-shadow-[0_0_22px_rgba(255,255,255,0.45),0_0_22px_rgba(34,211,238,0.8)] sm:text-6xl">JARVIS</p>
-                </motion.div>
-              )}
-
               {phase === 2 && (
                 <motion.div key="tagline" variants={stageVariants} initial="hidden" animate="visible" exit="exit" className="flex flex-col items-center gap-5">
-                  <p className="text-[0.72rem] font-medium uppercase tracking-[0.52em] text-cyan-100/70 sm:text-[0.8rem]">WELCOME TO</p>
-                  <p className="bg-gradient-to-r from-cyan-100 via-white to-blue-200 bg-clip-text text-5xl font-semibold tracking-[0.26em] text-transparent drop-shadow-[0_0_18px_rgba(34,211,238,0.9)] sm:text-6xl">JARVIS</p>
-                  <motion.p className="min-h-[2rem] text-base font-medium tracking-[0.16em] text-cyan-50/90 sm:text-lg" animate={prefersReducedMotion ? undefined : { opacity: [0.75, 1, 0.75] }} transition={prefersReducedMotion ? undefined : { duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}>
+                  <motion.p className="min-h-[1.8rem] text-sm font-medium tracking-[0.1em] text-cyan-50/90 sm:text-base sm:tracking-[0.16em]" animate={prefersReducedMotion ? undefined : { opacity: [0.75, 1, 0.75] }} transition={prefersReducedMotion ? undefined : { duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}>
                     {typedText}
                     <span className="ml-1 inline-block text-cyan-300">|</span>
                   </motion.p>
@@ -292,12 +276,12 @@ function SplashScreen() {
               )}
 
               {phase >= 3 && (
-                <motion.div key="initializing" variants={stageVariants} initial="hidden" animate="visible" exit="exit" className="flex w-full flex-col items-center gap-5">
-                  <p className="bg-gradient-to-r from-cyan-100 via-white to-blue-200 bg-clip-text text-4xl font-semibold tracking-[0.18em] text-transparent drop-shadow-[0_0_18px_rgba(34,211,238,0.85)] sm:text-5xl">JARVIS</p>
-                  <div className="flex items-center gap-2 text-sm uppercase tracking-[0.5em] text-cyan-100/70 sm:text-[0.82rem]"><span>Your Personal AI Assistant</span></div>
-                  <div className="flex items-center gap-2 text-sm font-medium tracking-[0.28em] text-cyan-50/80 sm:text-base">
+                <motion.div key="initializing" variants={stageVariants} initial="hidden" animate="visible" exit="exit" className="flex w-full flex-col items-center gap-4">
+                  <p className="bg-gradient-to-r from-cyan-100 via-white to-blue-200 bg-clip-text text-[2.2rem] font-semibold tracking-[0.16em] text-transparent drop-shadow-[0_0_18px_rgba(34,211,238,0.85)] sm:text-4xl sm:tracking-[0.18em]">JARVIS</p>
+                  <div className="flex items-center gap-2 text-[0.72rem] uppercase tracking-[0.32em] text-cyan-100/70 sm:text-[0.82rem] sm:tracking-[0.5em]"><span>Your Personal AI Assistant</span></div>
+                  <div className="flex items-center gap-2 text-[0.72rem] font-medium tracking-[0.18em] text-cyan-50/80 sm:text-sm sm:tracking-[0.28em]">
                     <span>Initializing Neural Core</span>
-                    <motion.span key={INITIALIZING_DOTS[dotsIndex]} initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -4 }} transition={{ duration: 0.2, ease: 'easeOut' }} className="w-8 text-left text-cyan-300">
+                    <motion.span key={INITIALIZING_DOTS[dotsIndex]} initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -4 }} transition={{ duration: 0.2, ease: 'easeOut' }} className="w-6 text-left text-cyan-300 sm:w-8">
                       {INITIALIZING_DOTS[dotsIndex]}
                     </motion.span>
                   </div>
@@ -305,12 +289,25 @@ function SplashScreen() {
               )}
             </AnimatePresence>
 
-            <div className="mt-8 w-full max-w-md px-2 sm:mt-10">
-              <div className="mb-3 flex items-center justify-between text-[0.62rem] uppercase tracking-[0.45em] text-cyan-100/60 sm:text-[0.7rem]">
+            <motion.div
+              className="mt-2 flex flex-col items-center gap-1 sm:mt-3 sm:gap-1.5"
+              animate={prefersReducedMotion ? undefined : { opacity: [0.85, 1, 0.85] }}
+              transition={prefersReducedMotion ? undefined : { duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
+            >
+              <p className="text-[0.58rem] font-semibold uppercase tracking-[0.34em] text-cyan-100/70 sm:text-[0.7rem] sm:tracking-[0.45em]">
+                WELCOME TO
+              </p>
+              <p className="bg-gradient-to-r from-white via-cyan-100 to-cyan-300 bg-clip-text text-[1.05rem] font-semibold tracking-[0.2em] text-transparent drop-shadow-[0_0_12px_rgba(34,211,238,0.55)] sm:text-[1.2rem] sm:tracking-[0.26em]">
+                JARVIS
+              </p>
+            </motion.div>
+
+            <div className="mt-6 w-full max-w-sm px-2 sm:mt-8 sm:max-w-md">
+              <div className="mb-2 flex items-center justify-between text-[0.55rem] uppercase tracking-[0.3em] text-cyan-100/60 sm:mb-3 sm:text-[0.68rem] sm:tracking-[0.45em]">
                 <span>Neural Boot Sequence</span>
                 <span>{Math.round(progress)}%</span>
               </div>
-              <div className="h-2 overflow-hidden rounded-full border border-cyan-300/15 bg-white/5 shadow-[0_0_30px_rgba(34,211,238,0.08),inset_0_0_14px_rgba(34,211,238,0.12)]">
+              <div className="h-1.5 overflow-hidden rounded-full border border-cyan-300/15 bg-white/5 shadow-[0_0_30px_rgba(34,211,238,0.08),inset_0_0_14px_rgba(34,211,238,0.12)] sm:h-2">
                 <motion.div
                   className="h-full origin-left rounded-full bg-[linear-gradient(90deg,rgba(255,255,255,0.95),rgba(103,232,249,0.95),rgba(34,211,238,0.95),rgba(59,130,246,0.95))] shadow-[0_0_18px_rgba(34,211,238,0.8)]"
                   style={{ transformOrigin: '0% 50%' }}
