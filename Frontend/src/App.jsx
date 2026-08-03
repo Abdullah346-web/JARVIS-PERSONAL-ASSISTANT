@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { Toaster } from 'react-hot-toast';
 import { useAuthStore } from './context/store';
 import ProtectedRoute from './components/ProtectedRoute';
+import SplashScreen from './components/SplashScreen';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
@@ -15,6 +16,8 @@ function App() {
     <>
       <Router>
         <Routes>
+          <Route path="/" element={<SplashScreen />} />
+
           {/* Public Routes */}
           <Route path="/signup" element={isAuthenticated ? <Navigate to="/dashboard" /> : <Signup />} />
           <Route path="/login" element={isAuthenticated ? <Navigate to="/dashboard" /> : <Login />} />
@@ -39,10 +42,7 @@ function App() {
           />
           
           {/* Default Route */}
-          <Route
-            path="/"
-            element={isAuthenticated ? <Navigate to="/dashboard" /> : <Navigate to="/login" />}
-          />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Router>
       
