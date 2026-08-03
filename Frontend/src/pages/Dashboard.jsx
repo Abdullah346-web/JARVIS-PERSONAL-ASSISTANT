@@ -22,6 +22,14 @@ const Dashboard = () => {
     return `Hello, ${user?.username || 'there'}, I'm Jarvis made by Abdullah. How can I assist you today?`;
   };
 
+  const speakJarvisReply = (reply, options = {}) => {
+    speak(reply, {
+      rate: 0.95,
+      pitch: 1,
+      ...options,
+    });
+  };
+
   const speakGreetingOnce = () => {
     const userId = user?.id || user?.email || 'guest';
     const greetingKey = `jarvis-greeting-spoken:${userId}`;
@@ -33,7 +41,7 @@ const Dashboard = () => {
     sessionStorage.setItem(greetingKey, 'true');
     const greeting = buildGreeting();
     setResponseText(greeting);
-    speak(greeting, {
+    speakJarvisReply(greeting, {
       rate: 1,
       pitch: 1,
       onStart: () => setIsSpeakingIntro(true),
@@ -82,11 +90,12 @@ const Dashboard = () => {
         try {
           const { data } = await aiService.getReply(message);
           setResponseText(data.reply);
-          speak(data.reply, { rate: 0.95, pitch: 1 });
+          speakJarvisReply(data.reply);
         } catch (error) {
           const reply = error.response?.data?.message || 'I could not reach the AI service. Please try again.';
           console.error('AI response error:', error);
           setResponseText(reply);
+          speakJarvisReply(reply);
           toast.error(reply);
         } finally {
           setIsThinking(false);
