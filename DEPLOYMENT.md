@@ -65,7 +65,7 @@
    JWT_SECRET=your_super_secret_key_12345
    JWT_EXPIRE=7d
    NODE_ENV=development
-   FRONTEND_URL=http://localhost:5173
+   CLIENT_URL=http://localhost:5173
    ```
 
 3. **Start Development Server**
@@ -104,7 +104,7 @@
    heroku config:set MONGODB_URI=your_mongodb_atlas_uri
    heroku config:set JWT_SECRET=your_secret_key
    heroku config:set NODE_ENV=production
-   heroku config:set FRONTEND_URL=your_frontend_url
+   heroku config:set CLIENT_URL=your_frontend_url
    ```
 
 6. **Deploy**
@@ -281,14 +281,14 @@ JWT_SECRET=your_super_secret_key_change_this_in_production_make_it_long_and_rand
 JWT_EXPIRE=7d
 
 # CORS
-FRONTEND_URL=http://localhost:5173
+CLIENT_URL=http://localhost:5173
 ```
 
 ### Frontend (.env)
 ```bash
 VITE_API_URL=http://localhost:5000/api
-# For production:
-# VITE_API_URL=https://your-backend-url/api
+# For production, set this to the Railway backend service URL:
+# VITE_API_URL=https://your-backend-service.up.railway.app/api
 ```
 
 ---
@@ -325,7 +325,7 @@ mongosh
 **CORS error**
 ```bash
 # Check Backend .env
-# FRONTEND_URL must match frontend URL
+# CLIENT_URL must match frontend URL
 # Verify CORS middleware in server.js
 ```
 
@@ -403,8 +403,8 @@ curl http://localhost:5000/api/assistants
 - [ ] Set NODE_ENV=production
 - [ ] Use MongoDB Atlas for production database
 - [ ] Enable HTTPS for frontend
-- [ ] Set FRONTEND_URL to production URL
-- [ ] Update VITE_API_URL in frontend
+- [ ] Set CLIENT_URL to the production frontend URL
+- [ ] Set VITE_API_URL to the production backend URL ending in /api
 - [ ] Test all features in production
 - [ ] Set up error logging (Sentry, LogRocket)
 - [ ] Configure CORS for production domain
