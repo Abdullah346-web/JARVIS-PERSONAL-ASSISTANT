@@ -131,15 +131,29 @@ const Dashboard = () => {
           className="w-full max-w-lg text-center"
         >
           <motion.div
-            animate={isSpeakingIntro ? { scale: [1, 1.08, 1] } : {}}
-            transition={{ duration: 1.4, repeat: Infinity }}
-            className="relative mx-auto w-40 h-40 sm:w-48 sm:h-48 flex items-center justify-center"
+            animate={
+              isSpeakingIntro
+                ? { y: [0, -5, 0], scale: [1, 1.06, 1] }
+                : { y: [0, -5, 0] }
+            }
+            transition={{ duration: isSpeakingIntro ? 1.4 : 4, repeat: Infinity, ease: 'easeInOut' }}
+            className="relative mx-auto w-32 h-32 sm:w-40 sm:h-40 flex items-center justify-center"
           >
-            <div className="absolute inset-8 rounded-full bg-neon-blue/10 blur-xl" />
+            <motion.div
+              className="absolute inset-2 rounded-full border border-neon-blue/25"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
+            />
+            <motion.div
+              className="absolute inset-5 rounded-full border border-dashed border-neon-cyan/25"
+              animate={{ rotate: -360 }}
+              transition={{ duration: 24, repeat: Infinity, ease: 'linear' }}
+            />
+            <div className="absolute inset-7 rounded-full bg-neon-blue/10 blur-xl" />
             <img
               src={jarvisImg}
               alt="Jarvis"
-              className="relative z-10 w-full h-full object-contain drop-shadow-[0_0_28px_rgba(0,212,255,0.3)]"
+              className="relative z-10 w-[88%] h-[88%] object-contain drop-shadow-[0_0_24px_rgba(0,212,255,0.3)]"
             />
           </motion.div>
 
