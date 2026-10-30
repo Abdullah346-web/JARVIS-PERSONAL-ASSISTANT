@@ -1,15 +1,13 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import toast from 'react-hot-toast';
 import { Eye, EyeOff, Sparkles } from 'lucide-react';
 import { authService } from '../services/api';
-import { useAuthStore } from '../context/store';
 import { containerVariants, itemVariants } from '../animations/variants';
 
 const Signup = () => {
   const navigate = useNavigate();
-  const setToken = useAuthStore((state) => state.setToken);
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
@@ -31,11 +29,16 @@ const Signup = () => {
     setLoading(true);
 
     try {
-      const response = await authService.signup(formData);
+      await authService.signup(formData);
       toast.success('Account created successfully! Redirecting to login...');
       setTimeout(() => navigate('/login'), 1500);
     } catch (error) {
-      toast.error(error.response?.data?.message || 'Signup failed');
+      console.error('Signup error:', error);
+      const message =
+        error.response?.data?.message ||
+        error.message ||
+        'Unable to reach the server. Please try again.';
+      toast.error(message);
     } finally {
       setLoading(false);
     }

@@ -4,7 +4,9 @@ import generateToken from '../utils/generateToken.js';
 // Signup
 export const signup = async (req, res, next) => {
   try {
-    const { username, email, password, confirmPassword } = req.body;
+    const username = typeof req.body?.username === 'string' ? req.body.username.trim() : '';
+    const email = typeof req.body?.email === 'string' ? req.body.email.trim().toLowerCase() : '';
+    const { password, confirmPassword } = req.body || {};
 
     // Validation
     if (!username || !email || !password || !confirmPassword) {
